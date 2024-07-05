@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <h1 x-data="{ message: 'I ❤️ YOU' }" x-text="message"></h1>
+    <div x-data="{ count: 0 }">
+        <button x-on:click="count++">press for each entrance    </button>
+     
+        <span x-text="count"></span>
+    </div>
+    <div x-data="{ open: false }">
+        <button @click="open = ! open">Toggle Content</button>
+     
+        <div x-show="open">
+            hi basil...
+        </div>
+    </div>
+    <div x-data="{ foo: 'bar' }">
+        <span x-text="foo"><!-- Will output: "bar" --></span>
+     
+        <div x-data="{ bar: 'baz' }">
+            <span x-text="foo"><!-- Will output: "bar" --></span>
+     
+            <div x-data="{ foo: 'bob' }">
+                <span x-text="foo"><!-- Will output: "bob" --></span>
+            </div>
+        </div>
+    </div>
+
+    <div x-data="{ open: false, toggle() { this.open = ! this.open } }">
+        <button @click="toggle()">Toggle Content</button>
+     
+        <div x-show="open">
+            Content...
+        </div>
+    </div>
+</body>
+</html>
